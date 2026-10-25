@@ -753,7 +753,7 @@
       tl.fromTo(sweep, { '--a': '0deg' }, { '--a': '360deg', duration: 1, ease: 'none' });
     });
     // count-down out, title card in
-    tl.to('.leader-ring, .leader-grid', { opacity: 0, duration: .35, ease: 'power2.in' });
+    tl.to('.leader-ring', { opacity: 0, duration: .35, ease: 'power2.in' });
     tl.set('#leaderTitle', { opacity: 1 });
     tl.to('.lt-by', { opacity: 1, y: 0, duration: .7, ease: 'power3.out' }, '>-0.05');
     tl.to('.lt-name', { clipPath: 'inset(0 0% 0 0)', duration: 1.1, ease: 'expo.inOut' }, '<0.15');
@@ -768,7 +768,7 @@
         if (videoReady || waited >= 2500) { clearInterval(iv); tl.resume(); }
       }, 100);
     }, 'hold+=1.1');
-    tl.to('#leaderTitle, .leader-meta, .leader-skip', { opacity: 0, duration: .45, ease: 'power2.in' }, 'hold+=1.2');
+    tl.to('#leaderTitle, .leader-meta', { opacity: 0, duration: .45, ease: 'power2.in' }, 'hold+=1.2');
     tl.to('.leader-bar', { backgroundColor: '#ece3d6', duration: .04 });
     tl.to('.leader-bar', { backgroundColor: '#000', duration: .1 });
     tl.addLabel('open');
@@ -818,11 +818,11 @@
     tl.fromTo(arm, { rotation: -28 }, { rotation: 0, duration: .5, ease: 'back.in(3)' }, 0)
       .fromTo(body, { opacity: 0, x: -8 }, { opacity: 1, x: 0, duration: .5 }, 0)
       .fromTo(title, { yPercent: 108 }, { yPercent: 0, duration: 1.1, ease: 'expo.out' }, .25)
-      .fromTo(p, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .8, ease: 'power3.out' }, .45)
       /* the red rule draws through, then retracts and leaves the hairline behind */
       .fromTo(head, { '--draw': 0, '--o': 'left' }, { '--draw': 1, duration: 1, ease: 'expo.inOut' }, .2)
       .set(head, { '--o': 'right' })
       .to(head, { '--draw': 0, duration: 1, ease: 'expo.inOut' }, '+=0.15');
+    if (p) tl.fromTo(p, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .8, ease: 'power3.out' }, .45);
   });
 
   /* about: words light up as you read */

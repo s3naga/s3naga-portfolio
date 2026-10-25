@@ -61,12 +61,8 @@ html.show-leader .leader{
 @keyframes leaderFailsafe{to{opacity:0; visibility:hidden; pointer-events:none;}}
 .leader-bar{position:absolute; left:0; right:0; height:50.5%; background:#000; z-index:1;}
 .leader-bar.top{top:0;} .leader-bar.bottom{bottom:0;}
-.leader-grid{position:absolute; inset:0; z-index:2; pointer-events:none;}
-.leader-grid i{position:absolute; background:rgba(236,227,214,0.12);}
-.leader-grid .lg-h{left:0; right:0; top:50%; height:1px;}
-.leader-grid .lg-v{top:0; bottom:0; left:50%; width:1px;}
 .leader-ring{position:relative; z-index:3; width:min(46vmin,260px); aspect-ratio:1; display:grid; place-items:center;}
-.leader-sweep{position:absolute; inset:7%; border-radius:50%;
+.leader-sweep{position:absolute; inset:11.4%; border-radius:50%;
   --a:0deg;
   background:conic-gradient(from 0deg, rgba(201,56,45,0.85) 0deg, rgba(201,56,45,0.85) var(--a), rgba(236,227,214,0.06) var(--a));}
 .leader-ring svg{position:absolute; inset:0; width:100%; height:100%; fill:none; stroke:rgba(236,227,214,0.55); stroke-width:1.2;}
@@ -75,7 +71,6 @@ html.show-leader .leader{
 .leader-title svg{display:block; width:100%; height:auto; overflow:visible;}
 .leader-meta{position:absolute; z-index:3; left:var(--gutter); right:var(--gutter); bottom:2rem; display:flex; justify-content:space-between;
   font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; color:var(--ash-dim);}
-.leader-skip{position:absolute; z-index:3; top:2rem; right:var(--gutter); font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ash-faint);}
 
 /* =====================================================================
    CURSOR
