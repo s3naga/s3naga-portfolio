@@ -15,8 +15,8 @@ _headers            cache rules (Cloudflare Pages / Netlify)
 
 ## Edit common things
 - **Films in the reel** — `index.html`, the `.reel-item` buttons (`data-id` = Vimeo ID).
-- **Log → grade frames** — put `gX-log.jpg` + `gX-grade.jpg` in `assets/grade/`, add a `.gf` button with `data-key="gX"` and `data-ratio="width/height"`.
-- **Stills** — `assets/stills/`, `<figure>` blocks in the Stills section.
+- **Log → grade frames** — in `assets/grade/` each frame `gX` needs `gX-grade.jpg`, `gX-log.jpg` (1800w fallback), `gX-grade-900/1600.webp`, `gX-log-900/1600.webp` and `gX-thumb.webp` (480w); then add a `.gf` button with `data-key="gX"` and `data-ratio="width/height"`.
+- **Stills** — `assets/stills/` (`sN.jpg` + `sN.webp`), `<figure>` blocks in the Stills section.
 - **Filmography** — `.filmo-row` links (`data-yt` = YouTube ID for the hover preview).
 
 ## Preview locally

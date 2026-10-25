@@ -9,11 +9,32 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Daniel Osesenaga — Filmmaker">
 <meta property="og:description" content="Director · Editor · Colourist · Sound. Filmmaker through every story, from first frame to final mix.">
-<meta property="og:url" content="https://s3naga.netlify.app/">
-<meta property="og:image" content="https://s3naga.netlify.app/assets/poster.jpg">
+<meta property="og:url" content="https://s3naga.pages.dev/">
+<meta property="og:site_name" content="S3NAGA">
+<meta property="og:image" content="https://s3naga.pages.dev/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Film by S3NAGA — Daniel Osesenaga, director, editor, colourist, sound">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s3naga.pages.dev/assets/og.jpg">
+<link rel="canonical" href="https://s3naga.pages.dev/">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daniel Osesenaga",
+  "alternateName": "S3NAGA",
+  "jobTitle": "Filmmaker — Director, Editor, Colourist, Sound Designer",
+  "url": "https://s3naga.pages.dev/",
+  "email": "mailto:s3nagamedia@gmail.com",
+  "image": "https://s3naga.pages.dev/assets/og.jpg",
+  "sameAs": ["https://instagram.com/s3naga", "https://vimeo.com/1209131828"]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0807'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23c9382d'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preload" href="assets/poster.jpg" as="image" fetchpriority="high">
 <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/lato-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
@@ -71,7 +92,7 @@
     <a href="#contact"><i>07</i>Contact</a>
   </div>
   <span class="nav-role">Filmmaker</span>
-  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="mb-txt">Menu</span><i class="mb-icon"><b></b><b></b></i></button>
+  <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="mb-txt">Menu</span><i class="mb-icon"><b></b><b></b></i></button>
 </nav>
 
 <div class="menu" id="menu" hidden>
@@ -107,7 +128,7 @@
   </div>
 
   <div class="hero-content" id="heroContent">
-    <h1 class="hero-name" aria-label="Daniel Osesenaga">
+    <h1 class="hero-name"><span class="sr-only">Daniel Osesenaga</span>
       <span class="hn hn-1" aria-hidden="true">DANIEL</span>
       <span class="hn hn-2" aria-hidden="true">OSESENAGA</span>
     </h1>
@@ -183,7 +204,7 @@
   <div class="reel" id="reel">
     <div class="reel-screen marks">
       <div class="player-shell" id="playerShell">
-        <iframe id="vimeoPlayer" title="Short film player" src="https://player.vimeo.com/video/1209131828?title=0&byline=0&portrait=0&dnt=1&playsinline=1&muted=0&autopause=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media"></iframe>
+        <iframe id="vimeoPlayer" title="Short film player" loading="lazy" src="https://player.vimeo.com/video/1209131828?title=0&byline=0&portrait=0&dnt=1&playsinline=1&muted=0&autopause=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media"></iframe>
         <button type="button" class="reel-unmute" id="reelUnmute" hidden data-cursor="Sound"><i aria-hidden="true"></i>Tap for sound</button>
         <div class="reel-cut" id="reelCut" aria-hidden="true">
           <span class="rc-label">Next</span>
@@ -284,8 +305,8 @@
   <div class="grade">
     <div class="grade-stage marks">
       <div class="grade-frame" id="gradeFrame" style="aspect-ratio:1800/1012" data-cursor="Drag">
-        <img class="g-after" id="gAfter" src="assets/grade/g1-grade.jpg" alt="Graded frame: night drive, warm cabin light" width="1800" height="1012" decoding="async">
-        <div class="g-before" id="gBefore"><img id="gBeforeImg" src="assets/grade/g1-log.jpg" alt="" width="1800" height="1012" decoding="async"></div>
+        <picture class="g-after"><source id="gAfterSrc" type="image/webp" srcset="assets/grade/g1-grade-900.webp 900w, assets/grade/g1-grade-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 72vw"><img id="gAfter" src="assets/grade/g1-grade.jpg" alt="Graded frame: night drive, warm cabin light" width="1800" height="1012" loading="lazy" decoding="async"></picture>
+        <div class="g-before" id="gBefore"><picture><source id="gBeforeSrc" type="image/webp" srcset="assets/grade/g1-log-900.webp 900w, assets/grade/g1-log-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 72vw"><img id="gBeforeImg" src="assets/grade/g1-log.jpg" alt="" width="1800" height="1012" loading="lazy" decoding="async"></picture></div>
         <span class="g-tag g-tag-l">Log</span><span class="g-tag g-tag-r">Grade</span>
         <div class="g-handle" id="gHandle" role="slider" tabindex="0" aria-label="Compare log and grade" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% log">
           <span class="g-knob"><i></i><i></i></span>
@@ -293,9 +314,9 @@
       </div>
     </div>
     <ol class="grade-frames" id="gradeFrames" aria-label="Frames">
-      <li><button type="button" class="gf active" data-key="g1" data-ratio="1800/1012" data-alt="Graded frame: night drive, warm cabin light" data-cursor="View" aria-pressed="true"><span class="gf-thumb" style="background-image:url('assets/grade/g1-grade.jpg')"></span><span class="gf-text"><span class="gf-num">A</span><span class="gf-name">Night drive</span></span></button></li>
-      <li><button type="button" class="gf" data-key="g2" data-ratio="1800/1350" data-alt="Graded frame: skin study, colour and black-and-white split" data-cursor="View" aria-pressed="false"><span class="gf-thumb" style="background-image:url('assets/grade/g2-grade.jpg')"></span><span class="gf-text"><span class="gf-num">B</span><span class="gf-name">Skin study</span></span></button></li>
-      <li><button type="button" class="gf" data-key="g3" data-ratio="1800/1350" data-alt="Graded frame from Go The Distance, black and white with subtitle" data-cursor="View" aria-pressed="false"><span class="gf-thumb" style="background-image:url('assets/grade/g3-grade.jpg')"></span><span class="gf-text"><span class="gf-num">C</span><span class="gf-name">Go The Distance</span></span></button></li>
+      <li><button type="button" class="gf active" data-key="g1" data-ratio="1800/1012" data-alt="Graded frame: night drive, warm cabin light" data-cursor="View" aria-pressed="true"><span class="gf-thumb" style="background-image:url('assets/grade/g1-thumb.webp')"></span><span class="gf-text"><span class="gf-num">A</span><span class="gf-name">Night drive</span></span></button></li>
+      <li><button type="button" class="gf" data-key="g2" data-ratio="1800/1350" data-alt="Graded frame: skin study, colour and black-and-white split" data-cursor="View" aria-pressed="false"><span class="gf-thumb" style="background-image:url('assets/grade/g2-thumb.webp')"></span><span class="gf-text"><span class="gf-num">B</span><span class="gf-name">Skin study</span></span></button></li>
+      <li><button type="button" class="gf" data-key="g3" data-ratio="1800/1350" data-alt="Graded frame from Go The Distance, black and white with subtitle" data-cursor="View" aria-pressed="false"><span class="gf-thumb" style="background-image:url('assets/grade/g3-thumb.webp')"></span><span class="gf-text"><span class="gf-num">C</span><span class="gf-name">Go The Distance</span></span></button></li>
     </ol>
   </div>
 </section>
@@ -309,16 +330,16 @@
   </div>
   <div class="stills-grid" id="stillsGrid">
     <div class="stills-row">
-      <figure data-i="0" data-cursor="View" tabindex="0"><img src="assets/stills/s1.jpg" alt="Black-and-white portrait of a man seated on a stool against a backdrop on a rooftop" loading="lazy" decoding="async"></figure>
-      <figure data-i="1" data-cursor="View" tabindex="0"><img src="assets/stills/s2.jpg" alt="Black-and-white figure framed by a hard diagonal of shadow and railings" loading="lazy" decoding="async"></figure>
-      <figure data-i="2" data-cursor="View" tabindex="0"><img src="assets/stills/s3.jpg" alt="Woman on a poolside lounger in muted light" loading="lazy" decoding="async"></figure>
-      <figure data-i="3" data-cursor="View" tabindex="0"><img src="assets/stills/s4.jpg" alt="Close detail of a hand on a red and white patterned custom trench" loading="lazy" decoding="async"></figure>
+      <figure data-i="0" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s1.webp"><img src="assets/stills/s1.jpg" alt="Black-and-white portrait of a man seated on a stool against a backdrop on a rooftop" loading="lazy" decoding="async"></picture></figure>
+      <figure data-i="1" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s2.webp"><img src="assets/stills/s2.jpg" alt="Black-and-white figure framed by a hard diagonal of shadow and railings" loading="lazy" decoding="async"></picture></figure>
+      <figure data-i="2" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s3.webp"><img src="assets/stills/s3.jpg" alt="Woman on a poolside lounger in muted light" loading="lazy" decoding="async"></picture></figure>
+      <figure data-i="3" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s4.webp"><img src="assets/stills/s4.jpg" alt="Close detail of a hand on a red and white patterned custom trench" loading="lazy" decoding="async"></picture></figure>
     </div>
     <div class="stills-row">
-      <figure data-i="4" data-cursor="View" tabindex="0"><img src="assets/stills/s5.jpg" alt="Woman with a bob haircut in warm amber light" loading="lazy" decoding="async"></figure>
-      <figure data-i="5" data-cursor="View" tabindex="0"><img src="assets/stills/s6.jpg" alt="Night crowd, a man in a Homecoming shirt seen from behind" loading="lazy" decoding="async"></figure>
-      <figure data-i="6" data-cursor="View" tabindex="0"><img src="assets/stills/s7.jpg" alt="Silhouette of a woman with braids from behind, by water" loading="lazy" decoding="async"></figure>
-      <figure data-i="7" data-cursor="View" tabindex="0"><img src="assets/stills/s8.jpg" alt="Black-and-white portrait of a woman stretching by a pool" loading="lazy" decoding="async"></figure>
+      <figure data-i="4" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s5.webp"><img src="assets/stills/s5.jpg" alt="Woman with a bob haircut in warm amber light" loading="lazy" decoding="async"></picture></figure>
+      <figure data-i="5" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s6.webp"><img src="assets/stills/s6.jpg" alt="Night crowd, a man in a Homecoming shirt seen from behind" loading="lazy" decoding="async"></picture></figure>
+      <figure data-i="6" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s7.webp"><img src="assets/stills/s7.jpg" alt="Silhouette of a woman with braids from behind, by water" loading="lazy" decoding="async"></picture></figure>
+      <figure data-i="7" data-cursor="View" tabindex="0"><picture><source type="image/webp" srcset="assets/stills/s8.webp"><img src="assets/stills/s8.jpg" alt="Black-and-white portrait of a woman stretching by a pool" loading="lazy" decoding="async"></picture></figure>
     </div>
   </div>
   <p class="ig-line">More stills on <a href="https://www.instagram.com/s3naga?stkn=Ym16cmMxdmt4Z2ho&utm_source=qr" target="_blank" rel="noopener" data-cursor="Open">Instagram — @s3naga</a></p>
@@ -385,7 +406,7 @@
       <span class="f-link">Watch →</span>
     </a>
   </div>
-  <div class="filmo-preview" id="filmoPreview" aria-hidden="true"><img alt="" id="filmoPreviewImg" onerror="this.style.visibility='hidden'" onload="this.style.visibility=''"><span class="fp-tag">▶ YouTube</span></div>
+  <div class="filmo-preview" id="filmoPreview" aria-hidden="true"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="filmoPreviewImg" onerror="this.style.visibility='hidden'" onload="this.style.visibility=''"><span class="fp-tag">▶ YouTube</span></div>
 </section>
 
 <!-- ============ CONTACT ============ -->
@@ -461,7 +482,7 @@
       </div>
     </form>
   </div>
-  <div class="credits" aria-label="Credits">
+  <div class="credits">
     <p><span>Directed</span><span>Shot</span><span>Cut</span><span>Graded</span><span>Mixed</span></p>
     <p class="credits-name">Daniel Osesenaga</p>
   </div>
@@ -479,7 +500,7 @@
 <!-- ============ MASTER TIMELINE (page scrubber) ============ -->
 <div class="master" id="master">
   <div class="master-tc" aria-hidden="true"><b class="rec-dot"></b><span id="masterTC">00:00:00:00</span></div>
-  <div class="master-track" id="masterTrack" aria-label="Page timeline">
+  <div class="master-track" id="masterTrack" role="group" aria-label="Page timeline">
     <div class="master-clips" id="masterClips"></div>
     <div class="master-head" id="masterHead" data-cursor="Scrub"></div>
   </div>
@@ -489,7 +510,7 @@
 <!-- ============ STILLS LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Stills viewer" hidden>
   <div class="lb-stage" id="lbStage">
-    <img id="lbImg" alt="">
+    <img id="lbImg" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
   </div>
   <div class="lb-bar">
     <span class="lb-count" id="lbCount">01 / 08</span>

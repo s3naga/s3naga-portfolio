@@ -136,6 +136,8 @@
     menuBtn.setAttribute('aria-expanded', 'true');
     menuBtn.querySelector('span').textContent = 'Close';
     stopScroll();
+    setBackgroundInert(true);
+    var first = menu.querySelector('a'); if (first) first.focus({ preventScroll: true });
     if (hasGSAP && !REDUCE) {
       gsap.fromTo(menu, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: .6, ease: 'expo.out' });
       gsap.fromTo($$('.menu li a', menu), { yPercent: 105 }, { yPercent: 0, duration: .7, ease: 'expo.out', stagger: .05, delay: .1 });
@@ -147,6 +149,15 @@
     menuBtn.setAttribute('aria-expanded', 'false');
     menuBtn.querySelector('span').textContent = 'Menu';
     startScroll();
+    setBackgroundInert(false);
+    menuBtn.focus({ preventScroll: true });
+  }
+  /* while an overlay is open, the page behind it can't be tabbed into or read out */
+  function setBackgroundInert(on){
+    ['main', '.footer', '#master', '#top', '.filmstrip'].forEach(function(sel){
+      var el = document.querySelector(sel); if (!el) return;
+      if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
   }
   if (menuBtn) menuBtn.addEventListener('click', function(){ menu.hidden ? openMenu() : closeMenu(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
@@ -261,11 +272,12 @@
     function show(i){
       idx = (i + srcs.length) % srcs.length;
       var apply = function(){
-        img.src = srcs[idx].src;
+        var fi = figs[idx].querySelector('img');
+        img.src = fi.currentSrc || srcs[idx].src;   // the WebP the page already loaded, JPEG on older browsers
         img.alt = srcs[idx].alt;
         count.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(srcs.length).padStart(2, '0');
       };
-      if (hasGSAP && !REDUCE && !box.hidden && img.getAttribute('src')) {
+      if (hasGSAP && !REDUCE && !box.hidden && img.getAttribute('src').indexOf('data:') !== 0) {
         gsap.to(img, { opacity: 0, scale: .985, duration: .16, onComplete: function(){
           apply();
           gsap.to(img, { opacity: 1, scale: 1, duration: .45, ease: 'power3.out' });
@@ -277,6 +289,7 @@
       box.hidden = false;
       show(i);
       stopScroll();
+      setBackgroundInert(true);
       if (hasGSAP && !REDUCE) {
         gsap.fromTo(box, { opacity: 0 }, { opacity: 1, duration: .35 });
         gsap.fromTo(img, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: .6, ease: 'power3.out' });
@@ -287,6 +300,7 @@
       if (box.hidden) return;
       box.hidden = true;
       startScroll();
+      setBackgroundInert(false);
       if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
     }
     figs.forEach(function(f, i){
@@ -354,6 +368,8 @@
     var frame = $('#gradeFrame');
     if (!frame) return null;
     var handle = $('#gHandle'), after = $('#gAfter'), beforeImg = $('#gBeforeImg');
+    var afterSrc = $('#gAfterSrc'), beforeSrc = $('#gBeforeSrc');
+    var webpSet = function(key, kind){ return 'assets/grade/' + key + '-' + kind + '-900.webp 900w, assets/grade/' + key + '-' + kind + '-1600.webp 1600w'; };
     var btns = $$('#gradeFrames .gf');
     var pos = 50;
     function set(p){
@@ -405,6 +421,8 @@
       btns.forEach(function(x){ var on = x === b; x.classList.toggle('active', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
       var swap = function(){
         applyRatio(b);
+        if (afterSrc) afterSrc.srcset = webpSet(key, 'grade');
+        if (beforeSrc) beforeSrc.srcset = webpSet(key, 'log');
         after.src = 'assets/grade/' + key + '-grade.jpg';
         beforeImg.src = 'assets/grade/' + key + '-log.jpg';
         after.alt = b.getAttribute('data-alt');
@@ -424,8 +442,25 @@
       } else swap();
     }
     btns.forEach(function(b){ b.addEventListener('click', function(){ show(b); }); });
-    // preload the other frames so switching is instant
-    btns.forEach(function(b){ var k = b.getAttribute('data-key'); [k + '-grade', k + '-log'].forEach(function(f){ var i = new Image(); i.src = 'assets/grade/' + f + '.jpg'; }); });
+    // warm the other frames only once the section is close, so they never slow the first load
+    var warmed = false;
+    var warm = function(){
+      if (warmed) return; warmed = true;
+      var sizes = afterSrc ? afterSrc.getAttribute('sizes') : '100vw';
+      btns.forEach(function(b){
+        var k = b.getAttribute('data-key');
+        ['grade', 'log'].forEach(function(kind){
+          var pic = document.createElement('picture'), so = document.createElement('source'), im = document.createElement('img');
+          so.type = 'image/webp'; so.srcset = webpSet(k, kind); so.sizes = sizes;
+          pic.appendChild(so); pic.appendChild(im);   // detached <picture> still picks and fetches the right file
+          im.sizes = sizes; im.src = 'assets/grade/' + k + '-' + kind + '.jpg';
+        });
+      });
+    };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(en){ if (en[0].isIntersecting) { warm(); io.disconnect(); } }, { rootMargin: '900px 0px' });
+      io.observe(frame);
+    } else warm();
     var active = btns.filter(function(b){ return b.classList.contains('active'); })[0];
     if (active) applyRatio(active);
     set(50);
