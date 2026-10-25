@@ -23,9 +23,13 @@
     d.classList.add('js');
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) d.classList.add('reduce-motion');
-    var seen = false;
-    try { seen = sessionStorage.getItem('s3_leader') === '1'; } catch(e) {}
-    if (!reduce && !seen) d.classList.add('show-leader');
+    // the countdown plays on every load that starts at the top of the page;
+    // it's skipped only when the browser is restoring a scrolled position, or a #section link was opened
+    var lastY = 0;
+    try { lastY = +sessionStorage.getItem('s3_y') || 0; } catch(e) {}
+    var navEntry = window.performance && performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var restoring = navEntry && navEntry.type !== 'navigate' && lastY > 40;
+    if (!reduce && !restoring && !location.hash) d.classList.add('show-leader');
     if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) d.classList.add('fine-pointer');
   })();
 </script>
@@ -102,7 +106,6 @@
       <span class="hud-tc" id="heroTC">00:00:00:00</span>
       <span class="hud-dim">A-CAM · 24 FPS</span>
     </div>
-    <div class="hud-cross"></div>
   </div>
 
   <div class="hero-content" id="heroContent">
@@ -177,7 +180,6 @@
   <div class="section-head">
     <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 02 <em>TK 1</em></span></div>
     <h2 class="reveal-title"><span>Short films &amp; campaigns</span></h2>
-    <p>Pick a film below — it plays up top, then rolls into the next.</p>
   </div>
 
   <div class="reel" id="reel">
@@ -279,7 +281,7 @@
   <div class="section-head">
     <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 04 <em>TK 1</em></span></div>
     <h2 class="reveal-title"><span>Log to grade</span></h2>
-    <p>Drag across the frame. Flat camera log on the left, the finished grade on the right.</p>
+    <p>Drag slider — log to grade</p>
   </div>
   <div class="grade">
     <div class="grade-stage marks">
@@ -414,7 +416,6 @@
     <div class="hire-head">
       <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 08 <em>TK 1</em></span></div>
       <h2 class="hire-title reveal-title"><span>Hire for work</span></h2>
-      <p class="hire-lede">Tell me what you're making. Your note opens in your email, ready to send.</p>
       <ul class="hire-roles" aria-label="Available for">
         <li>Direction</li><li>Cinematography</li><li>Editing</li><li>Colour grading</li><li>Sound design</li><li>Stills</li>
       </ul>

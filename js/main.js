@@ -158,6 +158,10 @@
     lastY = y;
   }
   window.addEventListener('scroll', onScrollNav, { passive: true });
+  var saveY = function(){ try { sessionStorage.setItem('s3_y', String(Math.round(window.scrollY))); } catch(e) {} };
+  var saveQueued = false;
+  window.addEventListener('scroll', function(){ if (saveQueued) return; saveQueued = true; setTimeout(function(){ saveQueued = false; saveY(); }, 250); }, { passive: true });
+  window.addEventListener('pagehide', saveY);
   onScrollNav();
 
   /* -------------------------------------------------------------------
@@ -702,7 +706,7 @@
     });
     tl.fromTo('.hero-lower > *', { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: .9, ease: 'power3.out', stagger: .1 }, .45);
     tl.fromTo('.hud-c', { scale: .4, opacity: 0 }, { scale: 1, opacity: 1, duration: .9, ease: 'expo.out', stagger: .05 }, .1);
-    tl.fromTo('.hud-row, .hud-cross, .scroll-cue', { opacity: 0 }, { opacity: 1, duration: .8 }, .5);
+    tl.fromTo('.hud-row, .scroll-cue', { opacity: 0 }, { opacity: 1, duration: .8 }, .5);
     tl.fromTo('#heroVideo', { scale: 1.12 }, { scale: 1, duration: 2.4, ease: 'expo.out' }, 0);
     return tl;
   }
@@ -725,7 +729,6 @@
     var finish = function(){
       if (finished) return;
       finished = true;
-      try { sessionStorage.setItem('s3_leader', '1'); } catch(e) {}
       leader.remove();
       html.classList.remove('show-leader');
       startScroll();
@@ -783,13 +786,6 @@
       if (tl.time() < tl.labels.open) { tl.resume(); tl.seek('open'); }
     });
   })();
-
-  /* hero on scroll: frame tightens, title drifts up */
-  gsap.timeline({ scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true } })
-    .fromTo('#heroFrame', { scale: 1, yPercent: 0 }, { scale: .9, yPercent: 6, ease: 'none', duration: 1 }, 0)
-    .fromTo('#heroContent', { yPercent: 0 }, { yPercent: -28, ease: 'none', duration: 1, immediateRender: false }, 0)
-    .fromTo('#heroContent', { opacity: 1 }, { opacity: 0, ease: 'power1.in', duration: .85, immediateRender: false }, .15)
-    .fromTo('#hud', { opacity: 1 }, { opacity: 0, ease: 'none', immediateRender: false }, 0);
 
   /* film strip — loops, speeds up + leans with scroll speed, reverses on scroll up */
   (function(){
@@ -900,22 +896,10 @@
       return tl;
     }
 
-    var mm = gsap.matchMedia();
-    mm.add('(min-width: 761px) and (min-height: 660px)', function(){
-      var tl = buildTimeline();
-      ST.create({
-        trigger: '#processPin', start: 'top 84px', end: function(){ return '+=' + Math.round(window.innerHeight * 1.15); },
-        pin: true, scrub: .6, animation: tl, anticipatePin: 1,
-        onUpdate: function(self){ setSteps(self.progress); }
-      });
-      return function(){ procRows.forEach(function(r){ r.row.classList.remove('lit'); }); };
-    });
-    mm.add('(max-width: 760px), (max-height: 659px)', function(){
-      var tl = buildTimeline();
-      ST.create({
-        trigger: board, start: 'top 85%', end: 'bottom 35%', scrub: .6, animation: tl,
-        onUpdate: function(self){ setSteps(self.progress); }
-      });
+    var tl = buildTimeline();
+    ST.create({
+      trigger: board, start: 'top 82%', end: 'bottom 38%', scrub: .5, animation: tl,
+      onUpdate: function(self){ setSteps(self.progress); }
     });
   })();
 
@@ -935,7 +919,7 @@
     var tl = gsap.timeline({ scrollTrigger: { trigger: '#hire', start: 'top 78%', once: true } });
     tl.fromTo('#hire .slate-arm', { rotation: -28 }, { rotation: 0, duration: .5, ease: 'back.in(3)' }, 0)
       .fromTo('#hire .reveal-title > span', { yPercent: 108 }, { yPercent: 0, duration: 1.1, ease: 'expo.out' }, .2)
-      .fromTo('#hire .hire-lede, #hire .hire-roles', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .1 }, .45)
+      .fromTo('#hire .hire-roles', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .1 }, .45)
       .fromTo('#hireForm > *', { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .08 }, .35);
   })();
 

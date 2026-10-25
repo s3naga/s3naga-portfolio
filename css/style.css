@@ -163,10 +163,6 @@ html.cursor-ready body, html.cursor-ready a, html.cursor-ready button, html.curs
 @keyframes blink{50%{opacity:.15}}
 .hud-tc{font-variant-numeric:tabular-nums; font-weight:500;}
 .hud-dim{color:rgba(236,227,214,.5);}
-.hud-cross{position:absolute; left:50%; top:46%; width:26px; height:26px; transform:translate(-50%,-50%); opacity:.38;}
-.hud-cross::before, .hud-cross::after{content:''; position:absolute; background:var(--paper);}
-.hud-cross::before{left:50%; top:0; bottom:0; width:1px;}
-.hud-cross::after{top:50%; left:0; right:0; height:1px;}
 @media (max-width:640px){ .hud-dim{display:none;} .hud-row{left:1.6rem; right:1.6rem;} .hud{inset:4.6rem 1rem 1rem;} }
 
 .hero-content{position:absolute; z-index:3; left:0; right:0; bottom:0; padding:0 var(--gutter) clamp(3rem,7vh,4.5rem);}
@@ -472,7 +468,6 @@ html.js .hero-content.is-in{opacity:1; animation:none;}
 .hire-head{position:sticky; top:96px;}
 @media (max-width:900px){ .hire-head{position:static;} }
 .hire-title{font-family:var(--display); font-weight:400; font-size:clamp(2.8rem,7vw,6.2rem); line-height:.9; color:var(--paper);}
-.hire-lede{margin-top:1.1rem; color:var(--ash); font-size:1.02rem; max-width:34ch;}
 .hire-roles{display:flex; flex-wrap:wrap; gap:.3rem 1rem; margin-top:1.6rem; font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ash-dim);}
 .hire-roles li::before{content:'— '; color:var(--red-bright);}
 .hire-form{display:flex; flex-direction:column; gap:1.7rem;}
