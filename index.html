@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Daniel Osesenaga — Filmmaker</title>
+<meta name="description" content="Daniel Osesenaga (s3naga) — director, editor, colourist and sound designer. Short films, campaigns, music videos and stills.">
+<meta name="theme-color" content="#0a0807">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Osesenaga — Filmmaker">
+<meta property="og:description" content="Director · Editor · Colourist · Sound. Filmmaker through every story, from first frame to final mix.">
+<meta property="og:url" content="https://s3naga.netlify.app/">
+<meta property="og:image" content="https://s3naga.netlify.app/assets/poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0807'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23c9382d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/lato-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<script>
+  (function(){
+    var d = document.documentElement;
+    d.classList.add('js');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) d.classList.add('reduce-motion');
+    var seen = false;
+    try { seen = sessionStorage.getItem('s3_leader') === '1'; } catch(e) {}
+    if (!reduce && !seen) d.classList.add('show-leader');
+    if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) d.classList.add('fine-pointer');
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#about">Skip to content</a>
+
+<!-- ============ FILM LEADER (intro) ============ -->
+<div class="leader" id="leader" aria-hidden="true">
+  <div class="leader-grid"><i class="lg-h"></i><i class="lg-v"></i></div>
+  <div class="leader-ring">
+    <div class="leader-sweep" id="leaderSweep"></div>
+    <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="78"/></svg>
+    <span class="leader-num" id="leaderNum">3</span>
+  </div>
+  <div class="leader-title" id="leaderTitle">
+    <svg viewBox="0 0 1818 531" role="img" aria-label="Film by S3NAGA"><path class="lt-by" fill="#FF6500" fill-rule="evenodd" d="M4.0 82.8C4.0 82.6 5.1 80.3 6.5 77.6C9.0 72.7 9.0 72.6 9.0 43.5C9.0 14.4 9.0 14.3 6.5 9.4C5.1 6.7 4.0 4.4 4.0 4.2C4.0 4.1 15.1 4.1 28.7 4.2L53.5 4.5L54.6 9.5C55.3 12.2 55.9 15.5 55.9 16.8C56.0 19.0 55.9 19.0 51.8 16.0C47.8 13.1 47.4 13.0 36.3 13.0L25.0 13.0L25.0 26.1L25.0 39.2L31.8 38.6C35.6 38.2 40.7 36.8 43.5 35.5C46.2 34.2 48.5 33.2 48.7 33.3C48.9 33.6 45.2 51.6 44.4 53.9C44.1 55.0 43.5 54.7 42.3 52.9C39.6 48.8 37.8 48.0 31.3 48.0L25.0 48.0L25.0 65.5L25.0 83.0L14.5 83.0C8.7 83.0 4.0 82.9 4.0 82.8ZM58.5 79.4C59.8 77.4 61.2 74.4 61.5 72.6C61.9 70.9 62.0 56.4 61.8 40.4L61.5 11.3L58.7 7.7L55.9 4.0L70.0 4.0L84.1 4.0L81.3 7.7L78.5 11.3L78.5 43.5L78.5 75.7L81.3 79.3L84.1 83.0L70.1 83.0L56.1 83.0L58.5 79.4ZM87.7 79.3L90.5 75.7L90.5 43.5L90.5 11.3L87.7 7.7L84.9 4.0L99.1 4.0C112.7 4.0 113.2 4.1 111.7 5.8C106.8 11.2 106.3 17.0 107.7 55.2L108.3 74.0L118.2 74.0C128.3 74.0 130.7 73.4 134.7 69.7C136.0 68.6 137.3 68.0 137.6 68.3C138.0 68.7 137.7 72.0 136.9 75.7L135.5 82.5L110.2 82.8L84.9 83.0L87.7 79.3ZM139.3 81.2C143.6 76.5 144.0 73.3 144.0 43.5C144.0 13.7 143.6 10.5 139.3 5.8C137.8 4.1 138.4 4.0 154.4 4.0L171.1 4.0L169.1 6.6C167.9 8.1 167.0 10.4 167.0 11.9C167.0 13.3 169.4 23.3 172.4 33.9L177.7 53.4L185.4 30.2C191.1 13.3 193.8 6.6 195.3 5.5C196.9 4.4 200.2 4.0 207.3 4.0L217.1 4.0L214.3 7.7L211.5 11.3L211.5 43.5L211.5 75.7L214.3 79.3L217.1 83.0L193.7 83.0C172.6 83.0 170.2 82.8 168.7 81.2C167.8 80.3 164.0 68.9 160.1 56.0L153.1 32.5L153.1 54.0C153.0 75.4 153.0 75.6 155.5 79.3L158.1 83.0L147.9 83.0C138.2 83.0 137.8 82.9 139.3 81.2ZM265.4 81.1C269.4 76.7 269.9 72.6 269.9 43.5C269.9 14.4 269.4 10.3 265.4 5.9C263.7 4.0 264.0 4.0 285.6 4.0C304.8 4.0 308.0 4.3 311.5 5.9C323.1 11.2 325.0 23.7 315.8 33.6L311.7 38.1L316.7 43.3C324.0 50.8 325.3 53.8 324.8 62.5C324.4 71.6 321.2 76.7 313.7 80.5C308.7 83.0 308.2 83.0 286.1 83.0C264.0 83.0 263.7 83.0 265.4 81.1ZM340.3 81.2C344.0 77.1 345.0 72.4 345.0 58.5L345.0 45.0L337.4 29.7C333.2 21.4 328.0 12.1 325.9 9.2L321.9 4.0L335.0 4.0C347.6 4.0 348.0 4.1 347.0 5.9C345.2 9.3 346.0 12.3 351.4 22.9L356.7 33.4L362.9 22.4C369.2 11.2 369.8 9.3 368.0 5.9C367.0 4.1 367.4 4.0 377.3 4.0L387.6 4.0L383.1 8.8C380.5 11.5 374.6 20.5 369.7 29.4L360.8 45.1L361.2 60.3C361.5 74.2 361.7 75.8 363.8 78.7C365.0 80.4 366.0 82.1 366.0 82.4C366.0 82.7 359.9 83.0 352.3 83.0C339.3 83.0 338.8 82.9 340.3 81.2ZM192.2 78.8C194.4 75.6 194.5 74.6 194.8 54.5C195.0 43.0 194.9 33.8 194.5 34.1C194.2 34.4 191.3 42.7 188.0 52.4C181.6 71.5 181.6 72.6 186.2 79.2C188.7 82.8 189.4 82.7 192.2 78.8ZM304.6 71.6C307.6 68.6 308.0 67.6 308.0 62.8C308.0 58.6 307.4 56.4 305.2 52.9C300.5 45.6 300.1 45.5 292.6 48.7L286.0 51.5L286.0 63.2L286.0 75.0L293.6 75.0C300.9 75.0 301.3 74.9 304.6 71.6ZM289.3 40.9C300.7 35.0 306.6 23.8 303.0 15.1C301.6 11.7 297.5 10.0 290.2 10.0L286.0 10.0L286.0 26.0C286.0 34.8 286.3 42.0 286.6 42.0C286.9 42.0 288.1 41.5 289.3 40.9Z"/><path class="lt-name" fill="#C60A00" fill-rule="evenodd" d="M87.0 525.0C76.2 523.2 66.3 520.8 43.6 514.5C24.2 509.2 17.2 509.8 13.5 517.1C12.2 519.6 11.4 520.0 8.0 520.0L4.0 520.0L4.0 470.0L4.0 420.0L7.8 420.0L11.5 420.0L13.8 429.8C24.5 473.8 52.6 507.1 87.7 517.2C94.6 519.3 97.6 519.5 115.0 519.4C131.9 519.4 135.5 519.1 142.4 517.2C164.2 511.1 179.7 498.4 188.6 479.3C199.9 455.2 196.4 430.5 179.7 415.4C168.3 405.2 154.4 399.1 116.0 387.5C85.0 378.2 74.7 374.4 60.9 367.4C37.3 355.4 22.4 339.4 15.6 319.0C12.2 308.6 11.0 300.5 11.0 286.4C11.0 271.2 13.1 262.1 20.0 248.5C32.8 223.0 56.5 204.8 88.0 196.3C95.9 194.2 100.5 193.7 114.7 193.3C138.6 192.6 146.2 194.0 177.0 204.9C193.2 210.7 198.8 210.2 202.5 202.9C203.8 200.4 204.6 200.0 208.0 200.0L212.0 200.0L212.0 243.0L212.0 286.0L208.6 286.0C205.7 286.0 205.1 285.6 204.5 283.2C204.2 281.7 201.6 274.4 198.8 267.0C186.8 234.7 173.5 216.9 154.5 207.6C144.6 202.7 137.2 201.0 123.9 200.3C97.2 199.0 77.2 205.8 61.4 221.5C52.4 230.4 48.0 238.1 45.9 248.8C43.4 262.0 48.4 276.4 59.1 287.0C69.8 297.5 87.9 305.9 125.2 317.6C156.4 327.3 168.1 331.6 181.6 338.0C217.3 354.9 233.5 375.2 237.1 407.6C240.5 437.9 229.2 469.1 206.5 491.6C188.4 509.5 164.9 521.1 137.5 525.5C125.0 527.6 100.4 527.3 87.0 525.0ZM1274.5 525.1C1237.2 518.4 1206.0 501.5 1179.2 473.5C1157.9 451.2 1143.7 424.5 1136.8 393.8C1134.8 384.6 1134.5 381.0 1134.5 360.5C1134.6 338.8 1134.7 336.8 1137.4 325.6C1142.3 304.5 1149.3 288.4 1161.0 270.7C1182.3 238.7 1215.6 213.5 1252.7 201.1C1272.9 194.4 1278.8 193.5 1302.0 193.5C1325.3 193.6 1328.8 194.2 1359.0 203.0C1385.0 210.5 1391.9 210.6 1396.5 203.3C1398.2 200.5 1399.1 200.1 1402.8 200.0L1407.0 200.0L1407.0 246.0L1407.0 292.0L1403.2 292.0L1399.5 292.0L1395.2 278.7C1382.9 240.7 1363.3 216.2 1337.0 206.1C1324.0 201.0 1314.6 199.7 1297.5 200.3C1279.6 201.0 1270.5 203.0 1257.5 209.4C1236.4 219.8 1221.9 240.3 1214.6 270.0C1209.5 290.9 1208.8 300.1 1208.3 349.7C1207.8 396.5 1208.4 412.2 1211.6 433.9C1218.7 482.1 1238.3 508.4 1273.5 517.2C1281.0 519.0 1285.4 519.4 1299.5 519.4C1318.5 519.5 1322.5 518.8 1333.3 513.2C1349.3 504.9 1358.6 487.4 1361.9 459.0C1362.5 454.3 1363.2 440.7 1363.6 428.8L1364.3 407.0L1340.6 407.0L1317.0 407.0L1317.0 403.5L1317.0 400.0L1387.0 400.0L1457.0 400.0L1457.0 403.5L1457.0 407.0L1442.0 407.0L1427.0 407.0L1427.0 458.5L1427.0 510.0L1422.7 510.0C1418.9 510.0 1418.3 509.7 1417.1 506.9C1415.5 503.3 1409.4 500.1 1403.9 500.0C1397.4 500.0 1385.8 503.7 1369.6 511.0C1340.5 524.1 1327.8 527.1 1301.1 526.9C1289.9 526.9 1281.2 526.3 1274.5 525.1ZM331.9 524.4C298.9 518.5 276.1 498.0 266.0 465.3C263.4 456.9 263.5 455.4 266.4 454.6C267.7 454.3 269.4 453.8 270.2 453.5C271.3 453.1 272.0 454.3 272.8 458.0C277.7 479.2 293.6 500.4 311.8 509.8C323.1 515.7 332.3 518.1 346.6 518.7C385.4 520.5 407.4 502.1 414.6 462.0C418.4 440.8 418.0 396.4 414.0 380.8C407.1 354.3 390.0 341.9 360.0 341.9C343.7 341.9 329.5 345.9 314.0 355.0C310.2 357.2 306.7 359.0 306.1 359.0C304.6 359.0 301.8 353.2 302.6 351.8C303.0 351.2 308.3 348.3 314.4 345.4C325.6 340.0 336.0 336.9 360.2 331.7C367.2 330.2 374.8 327.8 378.7 325.8C392.3 319.2 401.8 306.1 406.7 287.2C410.1 274.2 411.1 247.9 408.7 235.2C404.0 210.6 389.3 198.8 364.9 200.2C354.7 200.8 347.5 203.6 342.6 209.1C337.4 214.7 336.5 219.5 338.0 231.0C338.7 236.2 339.4 244.8 339.7 250.0C340.0 258.5 339.9 259.9 337.8 263.4C336.3 266.1 333.8 268.2 330.5 269.9C326.1 272.2 324.4 272.5 314.5 272.5C304.1 272.5 303.0 272.3 297.5 269.5C292.9 267.1 291.1 265.5 289.2 262.0C287.1 257.9 286.9 256.5 287.2 247.5C287.5 239.2 288.0 236.5 290.3 231.6C299.4 211.9 319.3 199.4 349.3 194.5C361.2 192.6 388.5 192.6 401.1 194.5C435.0 199.6 458.0 216.1 466.5 241.4C468.5 247.5 469.0 250.8 469.0 259.2C469.0 270.3 467.7 276.7 463.8 285.2C454.6 304.9 431.0 319.5 389.5 331.0C371.7 335.9 372.0 335.8 374.4 335.9C378.8 336.1 400.4 341.4 411.1 345.0C447.3 357.0 469.0 376.9 476.6 405.0C479.1 413.9 479.1 437.0 476.8 445.7C473.8 456.7 469.1 467.4 463.9 475.4C446.8 501.5 419.9 518.1 385.5 524.0C371.5 526.4 344.0 526.6 331.9 524.4ZM499.0 516.5L499.0 513.0L519.5 513.0L540.0 513.0L540.0 360.0L540.0 207.0L519.5 207.0L499.0 207.0L499.0 203.5L499.0 200.0L552.8 200.0L606.5 200.1L680.4 306.0C721.1 364.3 754.5 412.0 754.7 412.0C754.9 412.0 755.0 365.9 755.0 309.5L755.0 207.0L734.5 207.0L714.0 207.0L714.0 203.5L714.0 200.0L759.5 200.0L805.0 200.0L805.0 203.5L805.0 207.0L784.0 207.0L763.0 207.0L763.0 363.5L763.0 520.1L756.3 519.8L749.7 519.5L650.8 378.5C596.5 300.9 551.1 236.4 550.0 235.0C548.1 232.5 548.1 233.9 548.1 372.8L548.0 513.0L569.0 513.0L590.0 513.0L590.0 516.5L590.0 520.0L544.5 520.0L499.0 520.0L499.0 516.5ZM794.0 516.5L794.0 513.0L812.9 513.0L831.7 513.0L846.2 477.8C854.2 458.4 884.2 385.0 913.0 314.8L965.4 187.0L972.0 187.0L978.5 187.0L1049.1 349.8L1119.6 512.5L1138.8 512.8L1158.0 513.0L1158.0 516.5L1158.0 520.0L1082.5 520.0L1007.0 520.0L1007.0 516.5L1007.0 513.0L1027.3 512.8L1047.7 512.5L1022.0 453.0L996.4 393.5L943.0 393.5L889.7 393.5L865.3 452.5C851.9 484.9 841.0 511.8 841.0 512.2C841.0 512.6 849.8 513.0 860.5 513.0L880.0 513.0L880.0 516.5L880.0 520.0L837.0 520.0L794.0 520.0L794.0 516.5ZM1450.0 516.5L1450.0 513.0L1468.9 513.0L1487.7 513.0L1502.2 477.8C1510.2 458.4 1540.2 385.0 1569.0 314.8L1621.4 187.0L1628.0 187.0L1634.5 187.0L1705.1 349.8L1775.6 512.5L1794.8 512.8L1814.0 513.0L1814.0 516.5L1814.0 520.0L1738.5 520.0L1663.0 520.0L1663.0 516.5L1663.0 513.0L1683.3 512.8L1703.7 512.5L1678.0 453.0L1652.4 393.5L1599.0 393.5L1545.7 393.5L1521.3 452.5C1507.9 484.9 1497.0 511.8 1497.0 512.2C1497.0 512.6 1505.8 513.0 1516.5 513.0L1536.0 513.0L1536.0 516.5L1536.0 520.0L1493.0 520.0L1450.0 520.0L1450.0 516.5ZM993.0 385.3C993.0 384.9 981.4 357.9 967.3 325.2C949.2 283.3 941.4 266.3 940.9 267.6C940.5 268.7 929.8 294.9 917.0 326.0C904.2 357.1 893.5 383.3 893.3 384.2C892.8 385.9 895.6 386.0 942.9 386.0C970.4 386.0 993.0 385.7 993.0 385.3ZM1649.0 385.3C1649.0 384.9 1637.4 357.9 1623.3 325.2C1605.2 283.3 1597.4 266.3 1596.9 267.6C1596.5 268.7 1585.8 294.9 1573.0 326.0C1560.2 357.1 1549.5 383.3 1549.3 384.2C1548.8 385.9 1551.6 386.0 1598.9 386.0C1626.4 386.0 1649.0 385.7 1649.0 385.3Z"/></svg>
+  </div>
+  <div class="leader-meta"><span>S3NAGA</span><span>REEL — 2026</span></div>
+  <i class="leader-bar top"></i><i class="leader-bar bottom"></i>
+  <span class="leader-skip">Click to skip</span>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor" aria-hidden="true">
+  <div class="cursor-ring"><i class="tick t"></i><i class="tick r"></i><i class="tick b"></i><i class="tick l"></i><span class="cursor-label"></span></div>
+  <div class="cursor-dot"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="wordmark" data-cursor="Top" aria-label="S3NAGA — back to top"><img src="assets/logo-mark.svg" alt="S3NAGA" width="120" height="28"></a>
+  <div class="nav-links">
+    <a href="#about"><i>01</i>About</a>
+    <a href="#work"><i>02</i>Work</a>
+    <a href="#process"><i>03</i>Process</a>
+    <a href="#grade"><i>04</i>Grade</a>
+    <a href="#stills"><i>05</i>Stills</a>
+    <a href="#filmography"><i>06</i>Filmography</a>
+    <a href="#contact"><i>07</i>Contact</a>
+  </div>
+  <span class="nav-role">Filmmaker</span>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="mb-txt">Menu</span><i class="mb-icon"><b></b><b></b></i></button>
+</nav>
+
+<div class="menu" id="menu" hidden>
+  <ol>
+    <li><a href="#about"><i>SC 01</i>About</a></li>
+    <li><a href="#work"><i>SC 02</i>Work</a></li>
+    <li><a href="#process"><i>SC 03</i>Process</a></li>
+    <li><a href="#grade"><i>SC 04</i>Grade</a></li>
+    <li><a href="#stills"><i>SC 05</i>Stills</a></li>
+    <li><a href="#filmography"><i>SC 06</i>Filmography</a></li>
+    <li><a href="#contact"><i>SC 07</i>Contact</a></li>
+    <li><a href="#hire"><i>SC 08</i>Hire</a></li>
+  </ol>
+  <p class="menu-foot"><a href="mailto:s3nagamedia@gmail.com">s3nagamedia@gmail.com</a><a href="https://instagram.com/s3naga" target="_blank" rel="noopener">@s3naga</a></p>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-frame" id="heroFrame">
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade"></div>
+  </div>
+
+  <div class="hud" id="hud" aria-hidden="true">
+    <i class="hud-c tl"></i><i class="hud-c tr"></i><i class="hud-c bl"></i><i class="hud-c br"></i>
+    <div class="hud-row top">
+      <span class="rec"><b></b>REC</span>
+      <span class="hud-tc" id="heroTC">00:00:00:00</span>
+      <span class="hud-dim">A-CAM · 24 FPS</span>
+    </div>
+    <div class="hud-cross"></div>
+  </div>
+
+  <div class="hero-content" id="heroContent">
+    <h1 class="hero-name" aria-label="Daniel Osesenaga">
+      <span class="hn hn-1" aria-hidden="true">DANIEL</span>
+      <span class="hn hn-2" aria-hidden="true">OSESENAGA</span>
+    </h1>
+    <div class="hero-lower">
+      <div>
+        <div class="hero-role">Director · Editor · Colourist · Sound</div>
+        <p class="tagline">Filmmaker through every story, from first frame to final mix.</p>
+      </div>
+      <div class="hero-ctas">
+        <a href="#work" class="cta cta-play" data-cursor="Play"><span class="cta-icon magnetic"><i></i></span><span class="cta-txt">Watch work</span></a>
+        <a href="#contact" class="cta cta-line" data-cursor="Say hi"><span class="cta-txt">Get in touch</span><span class="cta-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+</header>
+
+<!-- ============ FILM STRIP (roles) ============ -->
+<div class="filmstrip" aria-hidden="true">
+  <div class="filmstrip-track" id="stripTrack">
+    <div class="strip-set">
+      <span>Director</span><b></b><span class="o">Editor</span><b></b><span>Colourist</span><b></b><span class="o">Sound design</span><b></b><span>D.O.P</span><b></b><span class="o">Photographer</span><b></b>
+    </div>
+    <div class="strip-set">
+      <span>Director</span><b></b><span class="o">Editor</span><b></b><span>Colourist</span><b></b><span class="o">Sound design</span><b></b><span>D.O.P</span><b></b><span class="o">Photographer</span><b></b>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="sec" data-scene="01" data-name="About">
+  <div class="section-head">
+    <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 01 <em>TK 1</em></span></div>
+    <h2 class="reveal-title"><span>About</span></h2>
+    <p>Every stage, one filmmaker.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-bio" id="aboutBio">
+      <p>I'm <strong>Daniel Osesenaga</strong> — director, editor, and colourist. I take a project from concept to final delivery myself, often behind the camera as D.O.P and always hands-on in the edit.</p>
+      <p><em class="hl">Sound design</em> and <em class="hl">colour grading</em> are where I spend the most care — the quiet work that makes a film feel finished.</p>
+    </div>
+    <div class="stats-col">
+      <div class="stat">
+        <span class="num"><span class="count" data-to="5">5</span>+</span>
+        <span class="label">Years of experience</span>
+      </div>
+      <div class="stat">
+        <span class="num scramble-in" data-text="Excellent">Excellent</span>
+        <span class="label">Client satisfaction</span>
+      </div>
+      <ul class="disciplines" aria-label="Disciplines">
+        <li><i>01</i>Direction</li>
+        <li><i>02</i>Cinematography</li>
+        <li><i>03</i>Editing</li>
+        <li><i>04</i>Colour</li>
+        <li><i>05</i>Sound</li>
+        <li><i>06</i>Stills</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work" class="sec" data-scene="02" data-name="Work">
+  <div class="section-head">
+    <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 02 <em>TK 1</em></span></div>
+    <h2 class="reveal-title"><span>Short films &amp; campaigns</span></h2>
+    <p>Pick a film below — it plays up top, then rolls into the next.</p>
+  </div>
+
+  <div class="reel" id="reel">
+    <div class="reel-screen marks">
+      <div class="player-shell" id="playerShell">
+        <iframe id="vimeoPlayer" title="Short film player" src="https://player.vimeo.com/video/1209131828?title=0&byline=0&portrait=0&dnt=1&playsinline=1&muted=0&autopause=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>
+        <button type="button" class="reel-unmute" id="reelUnmute" hidden data-cursor="Sound"><i aria-hidden="true"></i>Tap for sound</button>
+        <div class="reel-cut" id="reelCut" aria-hidden="true">
+          <span class="rc-label">Next</span>
+          <span class="rc-num" id="rcNum">02</span>
+          <span class="rc-title" id="rcTitle">The Quiet Work</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reel-info" aria-live="polite">
+      <div class="ri-now"><b class="live-dot"></b>Now playing <em id="reelCount">01 / 04</em></div>
+      <h3 class="ri-title" id="metaTitle">Go The Distance</h3>
+      <dl class="ri-meta">
+        <div><dt>Type</dt><dd id="metaType">Short film</dd></div>
+        <div><dt>Role</dt><dd id="metaRole">Director · Editor · Colour</dd></div>
+      </dl>
+      <p class="ri-desc" id="metaDesc">A one-minute black-and-white campaign inspired by Rocky.</p>
+      <div class="ri-foot">
+        <div class="ri-arrows">
+          <button type="button" id="reelPrev" aria-label="Previous film" data-cursor="Prev">←</button>
+          <button type="button" id="reelNext" aria-label="Next film" data-cursor="Next">→</button>
+        </div>
+        <a class="ri-watch" id="watchLink" href="https://vimeo.com/1209131828" target="_blank" rel="noopener" data-cursor="Open">Watch on Vimeo <span>↗</span></a>
+      </div>
+      <div class="ri-big" id="metaBig" aria-hidden="true">01</div>
+    </div>
+
+    <ol class="reel-strip" id="reelList" aria-label="Films">
+      <li>
+        <button type="button" class="reel-item active" data-id="1209131828" data-title="Go The Distance" data-type="Short film"
+          data-role="Director · Editor · Colour" data-desc="A one-minute black-and-white campaign inspired by Rocky." data-cursor="Play" aria-current="true">
+          <span class="rit-frame"><span class="rit-thumb" style="background-image:url('https://i.vimeocdn.com/video/2178633197-3389a87df4d51ce96ff1e6a004c90ce681da988215747d10d27f2b150e9621bb-d_640?region=us')"></span><span class="rit-play">▶</span></span>
+          <span class="rit-bar" data-cursor="Seek"><i></i></span>
+          <span class="rit-text"><span class="rit-num">01</span><span class="rit-name">Go The Distance</span><span class="rit-type">Short film</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="reel-item" data-id="1231273105" data-title="The Quiet Work" data-type="Campaign"
+          data-role="Director · Editor" data-desc="A basketball film inspired by Curry's 2015 MVP speech — happens in silence before the light." data-cursor="Play">
+          <span class="rit-frame"><span class="rit-thumb" style="background-image:url('https://i.vimeocdn.com/video/2206406864-026442ce970a1de686808f61e0633441b829e5283283cf900f1171aee1457cee-d_640?region=us')"></span><span class="rit-play">▶</span></span>
+          <span class="rit-bar" data-cursor="Seek"><i></i></span>
+          <span class="rit-text"><span class="rit-num">02</span><span class="rit-name">The Quiet Work</span><span class="rit-type">Campaign</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="reel-item" data-id="1231280829" data-title="Wireless Gig" data-type="Documentary"
+          data-role="Director · Editor" data-desc="" data-cursor="Play">
+          <span class="rit-frame"><span class="rit-thumb" style="background-image:url('https://i.vimeocdn.com/video/2206408802-04a2aa6df63f8512db5f5cda9dec7e81e9c333dd86d8621b4ad63f5e8fb669f2-d_640?region=us')"></span><span class="rit-play">▶</span></span>
+          <span class="rit-bar" data-cursor="Seek"><i></i></span>
+          <span class="rit-text"><span class="rit-num">03</span><span class="rit-name">Wireless Gig</span><span class="rit-type">Documentary</span></span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="reel-item" data-id="1231282633" data-title="UsEye" data-type="Campaign"
+          data-role="Director · Editor" data-desc="" data-cursor="Play">
+          <span class="rit-frame"><span class="rit-thumb" style="background-image:url('https://i.vimeocdn.com/video/2206417484-94291e406548bca970cbb4e97b36de5e81d47732320d61cf4106172536303c34-d_640?region=us')"></span><span class="rit-play">▶</span></span>
+          <span class="rit-bar" data-cursor="Seek"><i></i></span>
+          <span class="rit-text"><span class="rit-num">04</span><span class="rit-name">UsEye</span><span class="rit-type">Campaign</span></span>
+        </button>
+      </li>
+    </ol>
+  </div>
+  <p class="ig-line">Watch more short work on <a href="https://www.instagram.com/s3naga?stkn=Ym16cmMxdmt4Z2ho&utm_source=qr" target="_blank" rel="noopener" data-cursor="Open">Instagram — @s3naga</a></p>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" class="sec" data-scene="03" data-name="Process">
+  <div class="process-pin" id="processPin">
+    <div class="section-head">
+      <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 03 <em>TK 1</em></span></div>
+      <h2 class="reveal-title"><span>The process</span></h2>
+      <p>What a finished film looks like underneath.</p>
+    </div>
+    <div class="process-stage">
+      <div class="proc-tooltip" id="procTooltip"><strong id="procTitle">Track</strong><span id="procDesc"></span></div>
+      <div class="process-board marks" id="processBoard">
+        <div class="proc-playhead" id="procPlayhead"></div>
+      </div>
+    </div>
+    <ol class="proc-steps" id="procSteps">
+      <li data-step="0"><i>01</i>Assembly</li>
+      <li data-step="1"><i>02</i>Cutaways &amp; B-roll</li>
+      <li data-step="2"><i>03</i>Colour</li>
+      <li data-step="3"><i>04</i>Titles &amp; subtitles</li>
+      <li data-step="4"><i>05</i>Sound design &amp; score</li>
+    </ol>
+    <p class="proc-hint">Hover or tap any track to see what lives there.</p>
+  </div>
+</section>
+
+<!-- ============ GRADE ============ -->
+<section id="grade" class="sec" data-scene="04" data-name="Grade">
+  <div class="section-head">
+    <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 04 <em>TK 1</em></span></div>
+    <h2 class="reveal-title"><span>Log to grade</span></h2>
+    <p>Drag across the frame. Flat camera log on the left, the finished grade on the right.</p>
+  </div>
+  <div class="grade">
+    <div class="grade-stage marks">
+      <div class="grade-frame" id="gradeFrame" style="aspect-ratio:1800/1012" data-cursor="Drag">
+        <img class="g-after" id="gAfter" src="assets/grade/g1-grade.jpg" alt="Graded frame: night drive, warm cabin light" width="1800" height="1012" decoding="async">
+        <div class="g-before" id="gBefore"><img id="gBeforeImg" src="assets/grade/g1-log.jpg" alt="" width="1800" height="1012" decoding="async"></div>
+        <span class="g-tag g-tag-l">Log</span><span class="g-tag g-tag-r">Grade</span>
+        <div class="g-handle" id="gHandle" role="slider" tabindex="0" aria-label="Compare log and grade" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% log">
+          <span class="g-knob"><i></i><i></i></span>
+        </div>
+      </div>
+    </div>
+    <ol class="grade-frames" id="gradeFrames" aria-label="Frames">
+      <li><button type="button" class="gf active" data-key="g1" data-ratio="1800/1012" data-alt="Graded frame: night drive, warm cabin light" data-cursor="View" aria-pressed="true"><span class="gf-thumb" style="background-image:url('assets/grade/g1-grade.jpg')"></span><span class="gf-text"><span class="gf-num">A</span><span class="gf-name">Night drive</span></span></button></li>
+      <li><button type="button" class="gf" data-key="g2" data-ratio="1800/1350" data-alt="Graded frame: skin study, colour and black-and-white split" data-cursor="View" aria-pressed="false"><span class="gf-thumb" style="background-image:url('assets/grade/g2-grade.jpg')"></span><span class="gf-text"><span class="gf-num">B</span><span class="gf-name">Skin study</span></span></button></li>
+      <li><button type="button" class="gf" data-key="g3" data-ratio="1800/1350" data-alt="Graded frame from Go The Distance, black and white with subtitle" data-cursor="View" aria-pressed="false"><span class="gf-thumb" style="background-image:url('assets/grade/g3-grade.jpg')"></span><span class="gf-text"><span class="gf-num">C</span><span class="gf-name">Go The Distance</span></span></button></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ STILLS ============ -->
+<section id="stills" class="sec" data-scene="05" data-name="Stills">
+  <div class="section-head">
+    <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 05 <em>TK 1</em></span></div>
+    <h2 class="reveal-title"><span>Stills</span></h2>
+    <p>Photography alongside the motion work.</p>
+  </div>
+  <div class="stills-grid" id="stillsGrid">
+    <div class="stills-row">
+      <figure data-i="0" data-cursor="View" tabindex="0"><img src="assets/stills/s1.jpg" alt="Black-and-white portrait of a man seated on a stool against a backdrop on a rooftop" loading="lazy" decoding="async"></figure>
+      <figure data-i="1" data-cursor="View" tabindex="0"><img src="assets/stills/s2.jpg" alt="Black-and-white figure framed by a hard diagonal of shadow and railings" loading="lazy" decoding="async"></figure>
+      <figure data-i="2" data-cursor="View" tabindex="0"><img src="assets/stills/s3.jpg" alt="Woman on a poolside lounger in muted light" loading="lazy" decoding="async"></figure>
+      <figure data-i="3" data-cursor="View" tabindex="0"><img src="assets/stills/s4.jpg" alt="Close detail of a hand on a red and white patterned custom trench" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="stills-row">
+      <figure data-i="4" data-cursor="View" tabindex="0"><img src="assets/stills/s5.jpg" alt="Woman with a bob haircut in warm amber light" loading="lazy" decoding="async"></figure>
+      <figure data-i="5" data-cursor="View" tabindex="0"><img src="assets/stills/s6.jpg" alt="Night crowd, a man in a Homecoming shirt seen from behind" loading="lazy" decoding="async"></figure>
+      <figure data-i="6" data-cursor="View" tabindex="0"><img src="assets/stills/s7.jpg" alt="Silhouette of a woman with braids from behind, by water" loading="lazy" decoding="async"></figure>
+      <figure data-i="7" data-cursor="View" tabindex="0"><img src="assets/stills/s8.jpg" alt="Black-and-white portrait of a woman stretching by a pool" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+  <p class="ig-line">More stills on <a href="https://www.instagram.com/s3naga?stkn=Ym16cmMxdmt4Z2ho&utm_source=qr" target="_blank" rel="noopener" data-cursor="Open">Instagram — @s3naga</a></p>
+</section>
+
+<!-- ============ FILMOGRAPHY ============ -->
+<section id="filmography" class="sec" data-scene="06" data-name="Filmography">
+  <div class="section-head">
+    <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 06 <em>TK 1</em></span></div>
+    <h2 class="reveal-title"><span>Filmography</span></h2>
+    <p>Music videos, campaigns &amp; full credits.</p>
+  </div>
+
+  <div class="filmo" id="filmo">
+    <div class="filmo-row head"><span>#</span><span>Title</span><span>Client</span><span>Role</span><span></span></div>
+
+    <a class="filmo-row" href="https://www.youtube.com/watch?v=nlYqKVQuvg8" target="_blank" rel="noopener" data-yt="nlYqKVQuvg8" data-cursor="Watch">
+      <span class="f-num">001</span>
+      <span class="f-title"><span class="f-thumb"></span>Porthacourt Boy</span>
+      <span class="f-role">Dandizzy x Duncan Mighty — Visualizer</span>
+      <span class="f-type">DOP</span>
+      <span class="f-link">Watch →</span>
+    </a>
+    <a class="filmo-row" href="https://www.youtube.com/watch?v=R8YiZCCllNQ" target="_blank" rel="noopener" data-yt="R8YiZCCllNQ" data-cursor="Watch">
+      <span class="f-num">002</span>
+      <span class="f-title"><span class="f-thumb"></span>Barcadi</span>
+      <span class="f-role">Balloranking — Visualizer</span>
+      <span class="f-type">Colour</span>
+      <span class="f-link">Watch →</span>
+    </a>
+    <a class="filmo-row" href="https://www.youtube.com/watch?v=zperBtLDjU4" target="_blank" rel="noopener" data-yt="zperBtLDjU4" data-cursor="Watch">
+      <span class="f-num">003</span>
+      <span class="f-title"><span class="f-thumb"></span>Affection — All In</span>
+      <span class="f-role">KBLACKTHEBLACK</span>
+      <span class="f-type">Music video</span>
+      <span class="f-link">Watch →</span>
+    </a>
+    <a class="filmo-row" href="https://www.youtube.com/watch?v=wG0K1Kuskl0" target="_blank" rel="noopener" data-yt="wG0K1Kuskl0" data-cursor="Watch">
+      <span class="f-num">004</span>
+      <span class="f-title"><span class="f-thumb"></span>Bad Bitch Syndrome</span>
+      <span class="f-role">Siraheem</span>
+      <span class="f-type">DOP</span>
+      <span class="f-link">Watch →</span>
+    </a>
+    <a class="filmo-row" href="https://www.youtube.com/watch?v=kJVJ6pxpHj0" target="_blank" rel="noopener" data-yt="kJVJ6pxpHj0" data-cursor="Watch">
+      <span class="f-num">005</span>
+      <span class="f-title"><span class="f-thumb"></span>Impatient</span>
+      <span class="f-role">KBLACKTHEBLACK</span>
+      <span class="f-type">DOP</span>
+      <span class="f-link">Watch →</span>
+    </a>
+    <a class="filmo-row" href="https://www.youtube.com/watch?v=oyW9PQEaAPU" target="_blank" rel="noopener" data-yt="oyW9PQEaAPU" data-cursor="Watch">
+      <span class="f-num">006</span>
+      <span class="f-title"><span class="f-thumb"></span>4am in Rumuekini</span>
+      <span class="f-role">Muna ft. Crowther &amp; Duma</span>
+      <span class="f-type">Director · Editor · Colour</span>
+      <span class="f-link">Watch →</span>
+    </a>
+    <a class="filmo-row" href="https://youtu.be/t1WA5Hp6cck" target="_blank" rel="noopener" data-yt="t1WA5Hp6cck" data-cursor="Watch">
+      <span class="f-num">007</span>
+      <span class="f-title"><span class="f-thumb"></span>Focus</span>
+      <span class="f-role">Chad0n ft. Puppatiya</span>
+      <span class="f-type">Director</span>
+      <span class="f-link">Watch →</span>
+    </a>
+  </div>
+  <div class="filmo-preview" id="filmoPreview" aria-hidden="true"><img alt="" id="filmoPreviewImg" onerror="this.style.visibility='hidden'" onload="this.style.visibility=''"><span class="fp-tag">▶ YouTube</span></div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact sec" data-scene="07" data-name="Contact">
+  <div class="eyebrow"><b class="live-dot"></b>Open to work</div>
+  <p class="poem" id="poem">
+    <span class="pl">"so much depends</span>
+    <span class="pl">upon a <em>red wheelbarrow,</em></span>
+    <span class="pl">glazed with rain water"</span>
+  </p>
+
+  <div class="mail-wrap">
+    <a class="mail-big magnetic" href="mailto:s3nagamedia@gmail.com" data-cursor="Write">s3nagamedia@gmail.com</a>
+    <button type="button" class="copy-btn" id="copyBtn" data-cursor="Copy">Copy email</button>
+  </div>
+
+  <div class="links">
+    <a href="https://instagram.com/s3naga" target="_blank" rel="noopener" data-cursor="Open">Instagram — @s3naga</a>
+  </div>
+
+</section>
+
+<!-- ============ HIRE ============ -->
+<section id="hire" class="hire sec" data-scene="08" data-name="Hire">
+  <div class="hire-grid">
+    <div class="hire-head">
+      <div class="slate"><span class="slate-arm"></span><span class="slate-body">SC 08 <em>TK 1</em></span></div>
+      <h2 class="hire-title reveal-title"><span>Hire for work</span></h2>
+      <p class="hire-lede">Tell me what you're making. Your note opens in your email, ready to send.</p>
+      <ul class="hire-roles" aria-label="Available for">
+        <li>Direction</li><li>Cinematography</li><li>Editing</li><li>Colour grading</li><li>Sound design</li><li>Stills</li>
+      </ul>
+    </div>
+    <form class="hire-form" id="hireForm" novalidate>
+      <fieldset class="hf-group" data-name="Project" data-multi="1">
+        <legend><i>01</i>What are we making?</legend>
+        <div class="hf-chips">
+          <button type="button" class="chip" aria-pressed="false">Music video</button>
+          <button type="button" class="chip" aria-pressed="false">Short film</button>
+          <button type="button" class="chip" aria-pressed="false">Campaign / ad</button>
+          <button type="button" class="chip" aria-pressed="false">Documentary</button>
+          <button type="button" class="chip" aria-pressed="false">Stills</button>
+          <button type="button" class="chip" aria-pressed="false">Something else</button>
+        </div>
+      </fieldset>
+      <fieldset class="hf-group" data-name="Needs" data-multi="1">
+        <legend><i>02</i>What do you need from me?</legend>
+        <div class="hf-chips">
+          <button type="button" class="chip" aria-pressed="false">Full production</button>
+          <button type="button" class="chip" aria-pressed="false">Direction</button>
+          <button type="button" class="chip" aria-pressed="false">Cinematography</button>
+          <button type="button" class="chip" aria-pressed="false">Edit</button>
+          <button type="button" class="chip" aria-pressed="false">Colour</button>
+          <button type="button" class="chip" aria-pressed="false">Sound</button>
+        </div>
+      </fieldset>
+      <fieldset class="hf-group" data-name="Timing">
+        <legend><i>03</i>When?</legend>
+        <div class="hf-chips">
+          <button type="button" class="chip" aria-pressed="false">As soon as possible</button>
+          <button type="button" class="chip" aria-pressed="false">This month</button>
+          <button type="button" class="chip" aria-pressed="false">In the next 3 months</button>
+          <button type="button" class="chip" aria-pressed="false">Flexible</button>
+        </div>
+      </fieldset>
+      <div class="hf-row">
+        <label class="hf-field"><span><i>04</i>Your name</span><input type="text" name="name" autocomplete="name" placeholder="Name or company"></label>
+        <label class="hf-field"><span><i>05</i>Where are you based?</span><input type="text" name="place" autocomplete="address-level2" placeholder="City"></label>
+      </div>
+      <label class="hf-field"><span><i>06</i>The idea</span><textarea name="idea" rows="3" placeholder="A few lines is enough."></textarea></label>
+      <div class="hf-send">
+        <button type="submit" class="cta cta-play" data-cursor="Send"><span class="cta-icon"><i></i></span><span class="cta-txt">Send enquiry</span></button>
+        <p class="hf-note" id="hireNote">Opens your email app, addressed to s3nagamedia@gmail.com.</p>
+      </div>
+    </form>
+  </div>
+  <div class="credits" aria-label="Credits">
+    <p><span>Directed</span><span>Shot</span><span>Cut</span><span>Graded</span><span>Mixed</span></p>
+    <p class="credits-name">Daniel Osesenaga</p>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="footer">
+  <span>© Daniel Osesenaga — Filmmaker</span>
+  <img class="footer-logo" src="assets/logo-full.svg" alt="Film by S3NAGA" width="140" height="41">
+  <button type="button" class="rewind" id="rewind" data-cursor="Rewind">⏮ Rewind to start</button>
+</footer>
+
+<!-- ============ MASTER TIMELINE (page scrubber) ============ -->
+<div class="master" id="master">
+  <div class="master-tc" aria-hidden="true"><b class="rec-dot"></b><span id="masterTC">00:00:00:00</span></div>
+  <div class="master-track" id="masterTrack" aria-label="Page timeline">
+    <div class="master-clips" id="masterClips"></div>
+    <div class="master-head" id="masterHead" data-cursor="Scrub"></div>
+  </div>
+  <div class="master-name" id="masterName" aria-hidden="true">SC 00 — Open</div>
+</div>
+
+<!-- ============ STILLS LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Stills viewer" hidden>
+  <div class="lb-stage" id="lbStage">
+    <img id="lbImg" alt="">
+  </div>
+  <div class="lb-bar">
+    <span class="lb-count" id="lbCount">01 / 08</span>
+    <div class="lb-btns">
+      <button type="button" id="lbPrev" aria-label="Previous still" data-cursor="Prev">←</button>
+      <button type="button" id="lbNext" aria-label="Next still" data-cursor="Next">→</button>
+      <button type="button" id="lbClose" class="lb-close" aria-label="Close viewer" data-cursor="Close">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/vendor/lenis.min.js" defer></script>
+<script src="https://player.vimeo.com/api/player.js" defer></script>
+<script src="js/reel.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
