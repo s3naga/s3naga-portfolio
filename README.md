@@ -26,5 +26,7 @@ python3 -m http.server 8000
 then open http://localhost:8000 (the Vimeo player needs a real server, not a double-clicked file).
 
 ## Deploy
-Every push to `main` goes live when the repo is connected to Cloudflare Pages
-(build command: none, output directory: `/`). Custom domain: Pages → Custom domains.
+Hosted on Cloudflare (Workers static assets, config in `wrangler.jsonc`).
+Every push to `main` builds and goes live automatically — build command: none,
+deploy command: `npx wrangler deploy`. `.assetsignore` keeps repo files off the site.
+Custom domain: Worker → Settings → Domains & Routes.

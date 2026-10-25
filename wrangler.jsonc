@@ -1,0 +1,8 @@
+{
+  // Cloudflare Workers static site: serves the repo root as-is (no build step)
+  "name": "s3naga",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./"
+  }
+}
